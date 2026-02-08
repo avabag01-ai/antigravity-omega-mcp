@@ -63,6 +63,28 @@ npm install -g .
 
 ---
 
+## 🌐 Multi-Language Support Matrix
+
+Ω-PROTO intelligently detects and optimizes multiple programming languages.
+
+| Language | Support Level | Execution | Features |
+|:---|:---:|:---|:---|
+| **JavaScript / TS** | **Full** | Native / AI | Anchor Flow + Full Ω-Spec |
+| **Python** | **Full** | **agpy (Magic)** | Auto-Decompressing Runner |
+| **Java / C#** | **Advanced** | Decompress First | Optimized for Class-based logic |
+| **C / C++** | **Advanced** | Decompress First | `#include` & Pointer Awareness |
+| **PHP / Go / Rust**| **Universal**| Decompress First | Symbolic Logic Compression |
+
+### 🛠️ Execution Guide
+
+- **Python**: Use `agpy <file>.py` to execute compressed files instantly.
+- **JavaScript**: Most modern AI tools can interpret the compressed logic directly during a session.
+- **Compiled Languages (Java, C++, Rust)**: 
+    1. Compress for **AI Analysis & Debugging** (The Trinity Effect).
+    2. Use `super_decompress` to restore the code before compiling with standard tools (`javac`, `gcc`, `cargo`).
+
+---
+
 ## 📊 Real-World Benchmarks (Claude Sonnet 4.5 Optimized)
 
 Tested on production-grade open-source libraries and real user code:
