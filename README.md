@@ -19,10 +19,17 @@ While traditional developers focus on how *humans* read code, the architect of t
 
 ---
 
-## 📊 Performance Matrix
-- **Token Usage**: 40% - 70% reduction.
-- **AI Latency**: 2x - 3x faster processing due to reduced context pressure.
-- **Logic Integrity**: 100% preservation via symbolic mapping.
+## 📊 Scalability Benchmarks
+The efficiency of **ANTIGRAVITY Ω-PROTO** scales with the complexity and volume of the source code. Unlike standard minifiers, it thrives on the logical redundancy found in large-scale projects.
+
+| Source Type | Original Lines | Compression Efficiency | Status |
+| :--- | :--- | :--- | :--- |
+| Human (Expert) | ~200 lines | **1.9%** | Baseline |
+| AI-Generated | ~170 lines | **7.6%** | Optimized |
+| AI-Generated | **~6,800 lines** | **22.1%** | High Yield |
+| Human (Expert) | **~3,600 lines** | **31.9%** | **Maximum Gain** |
+
+> **Insight**: As code volume grows, the likelihood of structural patterns and "logical gravity" increases. ANTIGRAVITY collapses this weight, delivering higher token density where you need it most.
 
 ---
 

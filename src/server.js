@@ -105,13 +105,22 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         const output = `${bp}// === ANCHOR LOGIC ===\n${compHeader}\n// === COMPRESSED BODY ===\n${compBody}`;
 
+        const lineCount = args.code.split('\n').length;
+        let scaleCategory = "Small (Baseline)";
+        if (lineCount > 3000) scaleCategory = "Enterprise (Maximum Gain)";
+        else if (lineCount > 1000) scaleCategory = "Large (High Yield)";
+        else if (lineCount > 500) scaleCategory = "Medium (Optimized)";
+
         return {
             content: [{
                 type: "text",
                 text: JSON.stringify({
                     status: "SUCCESS",
+                    scale: scaleCategory,
+                    originalLineCount: lineCount,
                     originalBytes: args.code.length,
                     compressedBytes: output.length,
+                    efficiencyGain: `${((1 - (output.length / args.code.length)) * 100).toFixed(1)}%`,
                     machineCode: output
                 }, null, 2)
             }]
