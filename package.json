@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "Machine-First Compression and Logic Optimization MCP Server",
     "main": "src/server.js",
+    "bin": {
+        "agpy": "./bin/agpy"
+    },
     "type": "module",
     "scripts": {
         "start": "node src/server.js",

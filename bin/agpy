@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+const { spawn } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+// === DECOMPRESSION LOGIC (Internal) ===
+const pythonReverseMap = {
+    "Ωi": "def", "Ωd": "class", "Ωl": "import", "Ωm": "from", "Ω2": "return",
+    "Ω0": "if", "Ω1": "else", "Ω3": "elif", "Ωt": "try", "Ωc": "except",
+    "Ωw": "raise", "Ω∅": "None", "ΩT": "True", "ΩF": "False", "Ωs": "self",
+    "ΩK": "print", "Ωf": "for", "Ωh": "while", "Ωz": "with", "Ωa": "as",
+    "Ωn": "in", "Ωq": "is", "Ωx": "not", "Ω&": "and", "Ω|": "or"
+};
+
+function autoDecompress(code) {
+    if (!code.includes('Ω')) return code; // Not compressed
+
+    let result = code;
+    // 1. Symbol Restore
+    for (const [symbol, keyword] of Object.entries(pythonReverseMap)) {
+        const regex = new RegExp(symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+        result = result.replace(regex, keyword);
+    }
+    // 2. Unescape
+    result = result.split('Ω_esc_').join('Ω');
+    // 3. Remove metadata headers
+    result = result.replace(/^# Ω_brief:.*\n/gm, '');
+    
+    return result;
+}
+
+// === RUNNER LOGIC ===
+const args = process.argv.slice(2);
+if (args.length === 0) {
+    console.log("Usage: agpy <file.py> [args...]");
+    process.exit(1);
+}
+
+const filePath = path.resolve(args[0]);
+const pythonArgs = args.slice(1);
+
+if (!fs.existsSync(filePath)) {
+    console.error(`File not found: ${filePath}`);
+    process.exit(1);
+}
+
+const rawCode = fs.readFileSync(filePath, 'utf-8');
+const executableCode = autoDecompress(rawCode);
+
+// Execute in Python
+const py = spawn('python3', ['-c', executableCode, ...pythonArgs], {
+    stdio: 'inherit',
+    env: { ...process.env, PYTHONPATH: path.dirname(filePath) }
+});
+
+py.on('exit', (code) => process.exit(code));

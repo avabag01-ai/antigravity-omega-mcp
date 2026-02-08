@@ -30,6 +30,27 @@ Traditional code compression focuses on **file size**. Ω-PROTO delivers three c
 - **With Ω_brief**: AI jumps directly to target → 2-3 seconds
 - **Real Impact**: Debugging sessions complete in seconds, not minutes
 
+### 🪄 AGPY: The Magic Runner
+
+Compressed Python files normally won't run because of the Ω symbols. `agpy` solves this by transparently decompressing the code in-memory before execution.
+
+```bash
+# Run a compressed python file directly
+agpy your_compressed_script.py
+```
+
+**How it works:**
+1. Reads the compressed `.py` file.
+2. Transparently restores Ω symbols (e.g., `Ωi` -> `def`) in-memory.
+3. Executes via the local `python3` interpreter.
+4. Leaves the original file compressed on disk.
+
+**Installation:**
+```bash
+npm install -g .
+# Now you can use 'agpy' anywhere!
+```
+
 ### 2️⃣ **Accuracy**: Context-Aware Understanding
 - **Without Ω_brief**: AI guesses code purpose from variable names
 - **With Ω_brief**: AI knows exact architecture, functions, and domain
