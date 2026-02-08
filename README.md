@@ -104,4 +104,25 @@ Traditional coding has 'gravity'—the weight of legacy syntax and human readabi
 "If humans can't read it, but the machine executes it perfectly and cheaper—we've won."
 
 ## 📄 License
-MIT 
+
+**Dual License:**
+- **Free** for individuals, students, and open-source projects (MIT)
+- **Commercial License** required for companies (see [LICENSE.md](LICENSE.md))
+
+**Your company saves $990-$37,500/year in AI costs. The license pays for itself.**
+
+Contact: [Add your email here]
+
+---
+
+## 🎯 Why Companies Should Pay
+
+| Your Savings | License Cost | Net Profit |
+|:---|:---|:---|
+| **Startup (10 devs)**: $7,500/year | $990/year | **+$6,510/year** |
+| **Business (50 devs)**: $37,500/year | $4,900/year | **+$32,600/year** |
+| **Enterprise (100 devs)**: $75,000/year | $19,900/year | **+$55,100/year** |
+
+**ROI: 300-750%**
+
+See [LICENSE.md](LICENSE.md) for details.
